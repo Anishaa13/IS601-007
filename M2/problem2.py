@@ -8,8 +8,12 @@ def process_array(num, arr):
     print("\nProcessing Array({}): \n\n".format(num))
     print(arr)
     total = 0.00
+    for i in range(len(arr)):
+        total=total+arr[i]
+        i+=1
     # TODO add necessary code here for sum; every number must have two decimal places shown
-    print("\nThe total is {}:\n".format(total))
+    print("\nThe total is {:.2f}:\n".format(total))
+    print("UCID- as4283, Date - 09/24/2022, Explaination- I have used for loop for printing the odd values")
 
 
 print("Problem 2")

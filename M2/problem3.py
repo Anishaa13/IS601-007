@@ -1,3 +1,6 @@
+from array import array
+
+
 a1 = [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
 a2 = [-1, 1, -2, 2, 3, -3, -4, 5]
 a3 = [-0.01, -0.0001, -.15]
@@ -8,6 +11,18 @@ def process_array(num, arr):
     print("\nProcessing Array({}): \n\n".format(num))
     print(arr)
     print("\nPositive Output:\n")
+    if (type(arr[0])==str):
+        for value in arr:
+            if int(value)<0:
+                print(str(-1*int(value)))
+            else:
+                print(str(int(value)))
+    else:
+        for value in arr:
+            if value <0:
+                print(-1*value)
+            else:
+                print(value)            
     # TODO add new code here to print the desired result
 
 

@@ -7,8 +7,11 @@ a4 = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10]
 def process_array(num, arr):
     print("\nProcessing Array({}): \n\n".format(num))
     print(arr)
-    print("\nOdds output:\n")
+    for i in arr:
+        if(i%2!=0):
+           print("\nOdds output:\n",i)
     # TODO add necessary print statement to output only the odd values (hint, best if shown as a single line)
+    print("UCID- as4283, Date - 09/24/2022, Explaination- I have used for loop for printing the odd values")
 
 
 print("Problem 1")
