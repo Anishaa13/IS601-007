@@ -25,7 +25,7 @@ def process_array(num, arr):
                 print(value)            
     # TODO add new code here to print the desired result
 
-
+print("UCID: as4283 , Date-09/24/2022, Explaination: I have used if loop to print positive values")
 print("Problem 3")
 process_array(1, a1)
 process_array(2, a2)
