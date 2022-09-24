@@ -13,7 +13,7 @@ def process_array(num, arr):
         i+=1
     # TODO add necessary code here for sum; every number must have two decimal places shown
     print("\nThe total is {:.2f}:\n".format(total))
-    print("UCID- as4283, Date - 09/24/2022, Explaination- I have used for loop for printing the odd values")
+    print("UCID- as4283, Date - 09/24/2022, Explaination- I have used for loop for printing the total of the list of values")
 
 
 print("Problem 2")
