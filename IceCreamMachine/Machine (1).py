@@ -38,7 +38,7 @@ class STAGE(Enum):
 #UCID: as4283, Date: 10/23/2022 
 class IceMachine:
     # Constants https://realpython.com/python-constants/
-    USES_UNTIL_CLEANING = 100
+    USES_UNTIL_CLEANING = 2
     MAX_SCOOPS = 3
     MAX_TOPPINGS = 3
 
@@ -79,8 +79,8 @@ class IceMachine:
                     self.inprogress_icecream.append(c)
                     return
                 except:
-                    raise OutOfStockException("Sorry, Item is out of stock pick out of given options!")
-        raise InvalidChoiceException("Pick Something else based on given options!")
+                    raise OutOfStockException("Sorry, Item is out of stock, please pick out of given options!")
+        raise InvalidChoiceException("Pick Something else out of given options!")
 #UCID: as4283, Date: 10/23/2022 
     def pick_flavor(self, choice):
         try:
@@ -112,13 +112,13 @@ class IceMachine:
                     self.remaining_uses -= 1
                     return
                 except:
-                    raise OutOfStockException("Sorry, Item is out of stock pick out of given options!")            
+                    raise OutOfStockException("Sorry, Item is out of stock, please pick out of given options!")            
         raise InvalidChoiceException("Please pick something out of given options!")
 #UCID: as4283, Date: 10/23/2022 
     def pick_toppings(self, choice):
         try:
             if self.remaining_toppings <= 1:
-                raise ExceededRemainingChoicesException("Maximum Toppings reached")
+                raise ExceededRemainingChoicesException("Maximum Toppings limit reached")
         except ExceededRemainingChoicesException as e:
             print(e)
             self.currently_selecting = STAGE.Pay
@@ -131,7 +131,7 @@ class IceMachine:
                     self.remaining_toppings -= 1
                     return
                 except:
-                    raise OutOfStockException("Sorry, Item is out of stock pick out of given options!")
+                    raise OutOfStockException("Sorry, Item is out of stock, please pick out of given options!")
         raise InvalidChoiceException("Please pick out of given options!")
 #UCID: as4283, Date: 10/23/2022 
     def reset(self):
