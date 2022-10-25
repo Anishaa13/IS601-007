@@ -11,13 +11,13 @@ class Usable:
         self.name = name
         self.quantity = quantity
         self.cost = cost
-#UCID: as4283, Date: 10/23/2022 
+
     def use(self):
         self.quantity -= 1
         if (self.quantity < 0):
-            raise OutOfStockException("Sorry, Out of Stock!")
+            raise OutOfStockException("Sorry, Not available")
         return self.quantity 
-#UCID: as4283, Date: 10/23/2022 
+
     def in_stock(self):
         return self.quantity > 0
 
@@ -35,19 +35,19 @@ class STAGE(Enum):
     Flavor = 2
     Toppings = 3
     Pay = 4
-#UCID: as4283, Date: 10/23/2022 
+
 class IceMachine:
     # Constants https://realpython.com/python-constants/
-    USES_UNTIL_CLEANING = 2
+    USES_UNTIL_CLEANING = 100
     MAX_SCOOPS = 3
     MAX_TOPPINGS = 3
 
 
     containers = [Container(name="Waffle Cone", cost=1.5), Container(name="Sugar Cone", cost=1), Container("Cup", cost=1)]
     flavors = [Flavor(name="Vanilla", quantity=100, cost=1), Flavor(name="Chocolate", quantity=100, cost=1), Flavor(name="Strawberry", quantity=100, cost=1)]
-    toppings = [Toppings(name="Sprinkles", quantity=200, cost=.25), Toppings(name="Chocolate Chips", quantity=200, cost=.25), Toppings(name="M&Ms", quantity=200, cost=.25), \
+    toppings = [Toppings(name="Sprinkles", quantity=100, cost=.25), Toppings(name="Chocolate Chips", quantity=200, cost=.25), Toppings(name="M&Ms", quantity=200, cost=.25), \
     Toppings(name="Gummy Bears", quantity=200, cost=.25), Toppings(name="Peanuts", quantity=200, cost=.25)] 
-#UCID: as4283, Date: 10/23/2022 
+
 
     # variables
     remaining_uses = USES_UNTIL_CLEANING
@@ -79,26 +79,27 @@ class IceMachine:
                     self.inprogress_icecream.append(c)
                     return
                 except:
-                    raise OutOfStockException("Sorry, Item is out of stock, please pick out of given options!")
-        raise InvalidChoiceException("Pick Something else out of given options!")
-#UCID: as4283, Date: 10/23/2022 
+                    raise OutOfStockException("Item is out of stock, please pick out of given options!")
+        raise InvalidChoiceException("Please pick something based on given options!")
+#UCID: as4283, Date: 10/23/2022
     def pick_flavor(self, choice):
+        
         try:
             if self.remaining_uses <= 1:
-                clean_input=input("Do you want to clean the system yes/no?").strip().lower()
+                clean_input=input("Clean the system yes/no?").strip().lower()
                 if clean_input=="yes":
-                    raise NeedsCleaningException("Cleaning is done!")
+                    raise NeedsCleaningException("Cleaning is done.")
                 else:
                     while clean_input!="yes":
-                        clean_input=input("Do you want to clean the system yes/no?").strip().lower()
-                    raise NeedsCleaningException("Cleaning is done!")
+                        clean_input=input("Clean the system yes/no?").strip().lower()
+                    raise NeedsCleaningException("Cleaning is done.")
         except NeedsCleaningException as e:
             print(e)
             self.clean_machine()
-#UCID: as4283, Date: 10/23/2022 
+#UCID: as4283, Date: 10/23/2022
         try:
             if self.remaining_scoops <= 1:
-                raise ExceededRemainingChoicesException("Maximum scoops reached")
+                raise ExceededRemainingChoicesException("Limit reached")
         except ExceededRemainingChoicesException as e:
             print(e)
             self.currently_selecting = STAGE.Toppings
@@ -112,17 +113,17 @@ class IceMachine:
                     self.remaining_uses -= 1
                     return
                 except:
-                    raise OutOfStockException("Sorry, Item is out of stock, please pick out of given options!")            
-        raise InvalidChoiceException("Please pick something out of given options!")
-#UCID: as4283, Date: 10/23/2022 
+                    raise OutOfStockException("Item is out of stock, please pick out of given options")            
+        raise InvalidChoiceException("Please pick something based on given options")
+
     def pick_toppings(self, choice):
         try:
             if self.remaining_toppings <= 1:
-                raise ExceededRemainingChoicesException("Maximum Toppings limit reached")
+                raise ExceededRemainingChoicesException("Limit reached")
         except ExceededRemainingChoicesException as e:
             print(e)
             self.currently_selecting = STAGE.Pay
-#UCID: as4283, Date: 10/23/2022 
+
         for t in self.toppings:
             if t.name.lower() == choice:
                 try:
@@ -131,9 +132,9 @@ class IceMachine:
                     self.remaining_toppings -= 1
                     return
                 except:
-                    raise OutOfStockException("Sorry, Item is out of stock, please pick out of given options!")
-        raise InvalidChoiceException("Please pick out of given options!")
-#UCID: as4283, Date: 10/23/2022 
+                    raise OutOfStockException("Item is out of stock, please pick out of given options")
+        raise InvalidChoiceException("Please pick something out of given options")
+#UCID: as4283, Date: 10/23/2022
     def reset(self):
         self.remaining_scoops = self.MAX_SCOOPS
         self.remaining_toppings = self.MAX_TOPPINGS
@@ -142,7 +143,7 @@ class IceMachine:
 
     def clean_machine(self):
         self.remaining_uses = self.USES_UNTIL_CLEANING
-#UCID: as4283, Date: 10/23/2022 
+
     def handle_container(self, container):
         try:
             self.pick_container(container)
@@ -150,7 +151,7 @@ class IceMachine:
         except (InvalidChoiceException, OutOfStockException) as e:
             print(e)
             self.currently_selecting = STAGE.Container
-#UCID: as4283, Date: 10/23/2022 
+
     def handle_flavor(self, flavor):
         try:
             if flavor == "next":
@@ -160,7 +161,7 @@ class IceMachine:
         except (InvalidChoiceException, OutOfStockException) as e:
             print(e)
             self.currently_selecting = STAGE.Flavor
-#UCID: as4283, Date: 10/23/2022 
+#UCID: as4283, Date: 10/23/2022
     def handle_toppings(self, toppings):
         try:
             if toppings == "done":
@@ -171,7 +172,7 @@ class IceMachine:
             print(e)
             self.currently_selecting = STAGE.Toppings
 
-#UCID: as4283, Date: 10/23/2022 
+
     def handle_pay(self, expected, total):
         if total == str(expected):
             print("Thank you! Enjoy your icecream!")
@@ -179,12 +180,12 @@ class IceMachine:
             self.total_sales += expected # only if successful
             self.reset()
             return
-        raise InvalidPaymentException("Enter correct Payment Value")
+        raise InvalidPaymentException("Please enter the correct amount")
             
     def calculate_cost(self):
         # TODO add the calculation expression/logic for the inprogress_icecream
         
-#UCID: as4283, Date: 10/23/2022        
+        
         if self.inprogress_icecream[0].name=="Waffle Cone":
             cone_price=1.5
         else:
@@ -221,7 +222,7 @@ class IceMachine:
             if choice == "quit":
                 exit()
         self.run()
-#UCID: as4283, Date: 10/23/2022
+
     def start(self):
         self.run()
 

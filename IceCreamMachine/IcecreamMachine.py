@@ -142,7 +142,20 @@ class IceCreamMachine:
             
     def calculate_cost(self):
         # TODO add the calculation expression/logic for the inprogress_icecream
-        return 10000
+        
+        
+        if self.inprogress_icecream[0].name=="Waffle Cone":
+            cone_price=1.5
+        else:
+            cone_price=1.0
+        flavor_price=self.flavors[0].cost
+        toppings_price=self.toppings[0].cost
+        number_of_scoops=self.MAX_SCOOPS-self.remaining_scoops
+        number_of_toppings=self.MAX_TOPPINGS-self.remaining_toppings
+        cost=cone_price+(number_of_scoops)*(flavor_price)+(number_of_toppings)*(toppings_price)
+        
+        
+        return cost
 
     def run(self):
         if self.currently_selecting == STAGE.Container:

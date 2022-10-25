@@ -6,37 +6,37 @@ from IcecreamMachine import STAGE, Flavor, IceCreamMachine, Toppings
 def machine():
     icm = IceCreamMachine()
     return icm
-
+#UCID: as4283, Date: 10/23/2022
 @pytest.fixture
 def first_order(machine):
     machine.handle_container("cup")
-    machine.handle_flavor("vanilla")
+    machine.handle_flavor("chocolate")
     machine.handle_flavor("next")
-    machine.handle_toppings("m&ms")
+    machine.handle_toppings("peanuts")
     machine.handle_toppings("done")
     #assert machine.calculate_cost() == 2.25 
     machine.handle_pay(2.25,"2.25")
     return machine
     #assert first_order.total_icecreams==1
-
+#UCID: as4283, Date: 10/23/2022
 @pytest.fixture
 def second_order(first_order, machine):
     machine.handle_container("cup")
-    machine.handle_flavor("vanilla")
+    machine.handle_flavor("strawberry")
     machine.handle_flavor("next")
-    machine.handle_toppings("m&ms")
+    machine.handle_toppings("peanuts")
     machine.handle_toppings("done")
     #assert machine.calculate_cost() == 3.25
     machine.handle_pay(3.25,"3.25")
     return machine
     #assert second_order.total_icecreams==2
-
+#UCID: as4283, Date: 10/23/2022
 @pytest.fixture
 def third_order(second_order, machine):
     machine.handle_container("cup")
-    machine.handle_flavor("vanilla")
+    machine.handle_flavor("chocolate")
     machine.handle_flavor("next")
-    machine.handle_toppings("m&ms")
+    machine.handle_toppings("peanuts")
     machine.handle_toppings("done")
     #assert machine.calculate_cost() == 2.5
     machine.handle_pay(2.5,"2.5")
