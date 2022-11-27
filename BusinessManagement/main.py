@@ -12,7 +12,7 @@ print(CURR_DIR)
 sys.path.append(CURR_DIR)
 
 cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
-
+#UCID: as4283
 def create_app(config_filename=''):
     app = Flask(__name__)
     app.secret_key = os.environ.get("SECRET_KEY", "missing_secret")
