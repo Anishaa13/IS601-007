@@ -211,7 +211,7 @@ def delete():
             # TODO make this user-friendly
             flash("Data cannot be deleted", "danger")
         # TODO pass along feedback
-
+#UCID: as4283 Date: 04 Dec 2022
         # remove the id args since we don't need it in the list route
         # but we want to persist the other query args
         del args["id"]
