@@ -1,4 +1,4 @@
--- Active: 1663978686370@@db.ethereallab.app@3306@as4283
+-- Active: 1663137323009@@db.ethereallab.app@3306@ps332
 CREATE TABLE
     IS601_Users(
         id int auto_increment PRIMARY KEY,

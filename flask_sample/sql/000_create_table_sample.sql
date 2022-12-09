@@ -1,4 +1,3 @@
--- Active: 1663978686370@@db.ethereallab.app@3306@as4283
 CREATE TABLE
     IS601_Sample(
         id int auto_increment PRIMARY KEY,
