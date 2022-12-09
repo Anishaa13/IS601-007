@@ -9,7 +9,7 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt()
 
 from flask_principal import Identity, AnonymousIdentity, \
-     identity_changed
+    identity_changed
 from email_validator import validate_email
 
 auth = Blueprint('auth', __name__, url_prefix='/',template_folder='templates')
@@ -28,9 +28,9 @@ def register():
             # save the hash, not the plaintext password
             result = DB.insertOne("INSERT INTO IS601_Users (email, username, password) VALUES (%s, %s, %s)", email, username, hash)
             if result.status:
-                flash("Successfully registered","success")
+                flash("Registration is successful","success")
         except Exception as e:
-            flash(str(e), "danger")
+            flash("Sorry,Registrartion failed", "danger")
     return render_template("register.html", form=form)
 
 @auth.route("/login", methods=["GET", "POST"])
@@ -44,13 +44,13 @@ def login():
                 validate_email(email)
             except:
                 is_valid = False
-                flash("Invalid email address", "danger")
+                flash("You have entered Invalid email address", "danger")
         else:
             import re
             r = re.fullmatch("/^[a-z0-9_-]{2,30}$/", email)
             if r:
                 is_valid = False
-                flash("Invalid username", "danger")
+                flash("You have entered Invalid username", "danger")
         password = form.password.data
         if is_valid:
             try:
@@ -77,16 +77,16 @@ def login():
                                     identity=Identity(user.id))
                             # store user object in session as json
                             session["user"] = user.toJson()
-                            flash("Log in successful", "success")
+                            flash("Login successful", "success")
                             return redirect(url_for("auth.landing_page"))
                         else:
-                            flash("Error logging in", "danger")
+                            flash("Error while logging in", "danger")
                     else:
-                        flash("Invalid password", "warning")
+                        flash("Password is invalid", "warning")
                 else:
                     # invalid user and invalid password together is too much info for a potential attacker
                     # normally we return a single message for both "invalid username or password" so an attacker doens't know which part was correct
-                    flash("Invalid user", "warning")
+                    flash("user is invalid", "warning")
 
             except Exception as e:
                 flash(str(e), "danger")
@@ -108,7 +108,7 @@ def logout():
     # Tell Flask-Principal the user is anonymous
     identity_changed.send(current_app._get_current_object(),
                           identity=AnonymousIdentity())
-    flash("Successfully logged out", "success")
+    flash("Logged out", "success")
     return redirect(url_for("auth.login"))
 
 @auth.route("/profile", methods=["GET", "POST"])
@@ -124,7 +124,7 @@ def profile():
         r = re.fullmatch("/^[a-z0-9_-]{2,30}$/", username)
         if r:
             is_valid = False
-            flash("Invalid username", "danger")
+            flash("Username is invalid", "danger")
         current_password = form.current_password.data
         password = form.password.data
         confirm = form.confirm.data
@@ -140,11 +140,11 @@ def profile():
                         try:
                             result = DB.update("UPDATE IS601_Users SET password = %s WHERE id = %s", hash, user_id)
                             if result.status:
-                                flash("Updated password", "success")
+                                flash("Password is updated", "success")
                         except Exception as ue:
                             flash(ue, "danger")
                     else:
-                        flash("Invalid password","danger")
+                        flash("Password is updated","danger")
             except Exception as se:
                 flash(se, "danger")
         
@@ -152,7 +152,7 @@ def profile():
             try: # update email, username (this will trigger if nothing changed but it's fine)
                 result = DB.update("UPDATE IS601_Users SET email = %s, username = %s WHERE id = %s", email, username, user_id)
                 if result.status:
-                    flash("Saved profile", "success")
+                    flash("Profile is saved", "success")
             except Exception as e:
                 flash(e, "danger")
     try:
