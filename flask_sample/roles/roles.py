@@ -131,7 +131,7 @@ def apply():
                 if result.status:
                     flash(f"Successfully enabled/disabled roles for the user/role {len(mappings)} mappings", "success")
             except Exception as e:
-                flash(str(e), "danger")
+                flash("Unsuccessful", "danger")
         else:
             flash("No user/role mappings", "danger")
 

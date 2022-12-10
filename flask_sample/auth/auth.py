@@ -10,10 +10,18 @@ bcrypt = Bcrypt()
 
 from flask_principal import Identity, AnonymousIdentity, \
     identity_changed
-from email_validator import validate_email
 
 auth = Blueprint('auth', __name__, url_prefix='/',template_folder='templates')
 
+def check_duplicate(e):
+
+    import re
+    r = re.match(".*IS601_Users.(\w+)", e.args[0].args[1])
+    if r:
+        flash(f"The chosen {r.group(1   )} is not available", "warning")
+    else:
+        flash("Unknown error occurred, please try again", "danger")
+        print(e)
 
 @auth.route("/register", methods=["GET","POST"])
 def register():
@@ -28,9 +36,9 @@ def register():
             # save the hash, not the plaintext password
             result = DB.insertOne("INSERT INTO IS601_Users (email, username, password) VALUES (%s, %s, %s)", email, username, hash)
             if result.status:
-                flash("Registration is successful","success")
+                flash("Successfully registered","success")
         except Exception as e:
-            flash("Sorry,Registrartion failed", "danger")
+            check_duplicate(e)
     return render_template("register.html", form=form)
 
 @auth.route("/login", methods=["GET", "POST"])
@@ -39,18 +47,6 @@ def login():
     if form.validate_on_submit():
         is_valid = True
         email = form.email.data # email or username
-        if "@" in email:
-            try:
-                validate_email(email)
-            except:
-                is_valid = False
-                flash("You have entered Invalid email address", "danger")
-        else:
-            import re
-            r = re.fullmatch("/^[a-z0-9_-]{2,30}$/", email)
-            if r:
-                is_valid = False
-                flash("You have entered Invalid username", "danger")
         password = form.password.data
         if is_valid:
             try:
@@ -77,19 +73,19 @@ def login():
                                     identity=Identity(user.id))
                             # store user object in session as json
                             session["user"] = user.toJson()
-                            flash("Login successful", "success")
+                            flash("Log in successful", "success")
                             return redirect(url_for("auth.landing_page"))
                         else:
-                            flash("Error while logging in", "danger")
+                            flash("Error logging in", "danger")
                     else:
-                        flash("Password is invalid", "warning")
+                        flash("Invalid password", "warning")
                 else:
                     # invalid user and invalid password together is too much info for a potential attacker
                     # normally we return a single message for both "invalid username or password" so an attacker doens't know which part was correct
-                    flash("user is invalid", "warning")
+                    flash("Invalid user", "warning")
 
             except Exception as e:
-                flash(str(e), "danger")
+                flash("Registration unsuccessful", "danger")
     return render_template("login.html", form=form)
 
 @auth.route("/landing-page", methods=["GET"])
@@ -101,14 +97,14 @@ def landing_page():
 @auth.route("/logout", methods=["GET"])
 def logout():
     logout_user()
-     # Remove session keys set by Flask-Principal
+    # Remove session keys set by Flask-Principal
     for key in ('identity.name', 'identity.auth_type'):
         session.pop(key, None)
 
     # Tell Flask-Principal the user is anonymous
     identity_changed.send(current_app._get_current_object(),
-                          identity=AnonymousIdentity())
-    flash("Logged out", "success")
+                        identity=AnonymousIdentity())
+    flash("Successfully logged out", "success")
     return redirect(url_for("auth.login"))
 
 @auth.route("/profile", methods=["GET", "POST"])
@@ -120,11 +116,6 @@ def profile():
         is_valid = True
         email = form.email.data
         username = form.username.data
-        import re
-        r = re.fullmatch("/^[a-z0-9_-]{2,30}$/", username)
-        if r:
-            is_valid = False
-            flash("Username is invalid", "danger")
         current_password = form.current_password.data
         password = form.password.data
         confirm = form.confirm.data
@@ -140,31 +131,35 @@ def profile():
                         try:
                             result = DB.update("UPDATE IS601_Users SET password = %s WHERE id = %s", hash, user_id)
                             if result.status:
-                                flash("Password is updated", "success")
+                                flash("Updated password", "success")
                         except Exception as ue:
-                            flash(ue, "danger")
+                            flash("Task unsuccessful", "danger")
                     else:
-                        flash("Password is updated","danger")
+                        flash("Invalid password","danger")
             except Exception as se:
-                flash(se, "danger")
+                flash("Couldn't update password", "danger")
         
         if is_valid:
             try: # update email, username (this will trigger if nothing changed but it's fine)
                 result = DB.update("UPDATE IS601_Users SET email = %s, username = %s WHERE id = %s", email, username, user_id)
                 if result.status:
-                    flash("Profile is saved", "success")
+                    flash("Saved profile", "success")
             except Exception as e:
-                flash(e, "danger")
+                check_duplicate(e)
     try:
         # get latest info if anything changed
         result = DB.selectOne("SELECT id, email, username FROM IS601_Users where id = %s", user_id)
         if result.status and result.row:
             user = User(**result.row)
-            form = ProfileForm(obj=user)
+            # switch how user is loaded so we don't lose error validations
+            # form = ProfileForm(obj=user)
+            print("loading user", user)
+            form.username.data = user.username
+            form.email.data = user.email
             # TODO update session
             current_user.email = user.email
             current_user.username = user.username
             session["user"] = current_user.toJson()
     except Exception as e:
-        flash(e, "danger")
+        flash("info fetched", "danger")
     return render_template("profile.html", form=form)
