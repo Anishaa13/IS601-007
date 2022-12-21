@@ -8,6 +8,7 @@ on:
     branches:
       - dev
       - DeploymentSetup
+      - Milestone2
 
 # Your workflows jobs.
 jobs:
@@ -18,7 +19,7 @@ jobs:
       SECRET_KEY: ${{secrets.SECRET_KEY_DEV}}
       PORT: 8080
       # change to the project directory you're deploying
-      WORKING_DIRECTORY: flask_sample
+      WORKING_DIRECTORY: Project
     defaults:
       run:
           working-directory: ${{env.WORKING_DIRECTORY}}
