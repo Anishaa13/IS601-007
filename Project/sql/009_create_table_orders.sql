@@ -1,3 +1,4 @@
+-- Active: 1663978686370@@db.ethereallab.app@3306@as4283
 CREATE TABLE
     IF NOT EXISTS IS601_S_Orders(
         id int AUTO_INCREMENT PRIMARY KEY,
