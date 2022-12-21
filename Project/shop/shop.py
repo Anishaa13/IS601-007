@@ -75,7 +75,7 @@ def items():
 def shop_list():
     rows = []
     args = []
-    ##UCID: mk994 Date Dec 17th
+    ##UCID: as4283 Date: 20 Dec 2022
     name = request.args.get("name")
     category = request.args.get("category")
     price = request.args.get("price")
@@ -255,7 +255,7 @@ def purchase():
                     INSERT INTO IS601_S_Attributes (name, value, user_id)
                     VALUES (%(attr)s,
                     (SELECT IFNULL(SUM(quantity), 0) FROM IS601_S_OrderItems WHERE item_id = %(target_id)s and user_id = %(uid)s)
-                     , %(uid)s)
+                    %(uid)s)
                     ON DUPLICATE KEY UPDATE 
                     value = (SELECT IFNULL(SUM(quantity), 0) FROM IS601_S_OrderItems WHERE item_id = %(target_id)s and user_id = %(uid)s)
                     """
