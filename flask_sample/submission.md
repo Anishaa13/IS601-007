@@ -1,31 +1,31 @@
 <table><tr><td> <em>Assignment: </em> IS601 Milestone1 Deliverable</td></tr>
 <tr><td> <em>Student: </em> Anisha Sharma (as4283)</td></tr>
-<tr><td> <em>Generated: </em> 12/11/2022 7:30:11 PM</td></tr>
+<tr><td> <em>Generated: </em> 12/21/2022 2:36:32 PM</td></tr>
 <tr><td> <em>Grading Link: </em> <a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IS601-007-F22/is601-milestone1-deliverable/grade/as4283" target="_blank">Grading</a></td></tr></table>
 <table><tr><td> <em>Instructions: </em> <ol><li>Checkout Milestone1 branch</li><li>Create a milestone1.md file in your Project folder</li><li>Git add/commit/push this empty file to Milestone1 (you'll need the link later)</li><li>Ensure your images display correctly in the sample markdown at the bottom</li><ol><li>NOTE: You may want to try to capture as much checklist evidence in your screenshots as possible, you do not need individual screenshots and are recommended to combine things when possible. Also, some screenshots may be reused if applicable.</li></ol><li>Save the submission items</li><li>Copy/paste the markdown from the "Copy markdown to clipboard link" or via the download button</li><li>Paste the code into the milestone1.md file or overwrite the file</li><li>Git add/commit/push the md file to Milestone1</li><li>Double check the images load when viewing the markdown file (points will be lost for invalid/non-loading images)</li><li>Make a pull request from Milestone1 to dev and merge it (resolve any conflicts)<ol><li>Make sure everything looks ok on heroku dev</li></ol></li><li>Make a pull request from dev to prod (resolve any conflicts)<ol><li>Make sure everything looks ok on heroku prod</li></ol></li><li>Submit the direct link from github prod branch to the milestone1.md file (no other links will be accepted and will result in 0)</li></ol></td></tr></table>
 <table><tr><td> <em>Deliverable 1: </em> Feature: User will be able to register a new account </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add one or more screenshots of the application showing the form and validation errors per the feature requirements</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/PNT69JP/Show-invalid-password-validation.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/CJrpJR1/Show-invalid-password-validation.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the invalid password validation<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/5h8y6FP/Show-passwords-not-much-validation.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/cb1hSQb/Show-passwords-not-much-validation.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This shows the passwords not match validation<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/YZr5B8R/Show-invalid-email-validation.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/QbdBVh3/Show-invalid-email-validation.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows invalid email validation error<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/FHcT3fs/Show-email-not-available-validation-already-registered.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/p1W0QvQ/Show-email-not-available-validation-already-registered.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the validation for already registered email.<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/LNzYXcp/Show-username-not-available-validation-username-is-taken.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/526hrX1/Show-username-not-available-validation-username-is-taken.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the validation when new user tries to use username already<br>taken by another user<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/2qf8T9j/Show-the-form-with-valid-data-filled-in-before-the-form-is-submitted.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/pvwJV15/Show-the-form-with-valid-data-filled-in-before-the-form-is-submitted.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This shows the prefilled data before hitting the register button<br></p>
 </td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 2: </em> Add a screenshot of the Users table with data in it</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/sbtbzv0/The-valid-user-data-from-Task-1-should-be-present-in-this-screenshot-Clearly-highlight-which-row-it.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/XsCQZjW/The-valid-user-data-from-Task-1-should-be-present-in-this-screenshot-Clearly-highlight-which-row-it.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the users table in DB, where the record of recently<br>registered user is present<br></p>
 </td></tr>
 </table></td></tr>
@@ -36,15 +36,15 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 2: </em> Feature: User will be able to login to their account </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add one or more screenshots of the application showing the form and validation errors per the feature requirements</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/t3jRZZr/Show-validation-based-on-non-existing-user.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/DGncRZK/Show-validation-based-on-non-existing-user.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot is for&quot;Show validation based on non-existing user&quot;<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/Nm43Gtp/Show-password-mismatch-validation-doesn-t-match-what-s-in-the-DB.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/SxPzGDM/Show-password-mismatch-validation-doesn-t-match-what-s-in-the-DB.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This shows the validation for mismatch password<br></p>
 </td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 2: </em> Add a screenshot of successful login</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/bPjPt41/Add-a-screenshot-of-successful-login.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/gVvZSRM/Add-a-screenshot-of-successful-login.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the flash message after user has logged in successfully<br></p>
 </td></tr>
 </table></td></tr>
@@ -55,12 +55,12 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 3: </em> Feat: Users will be able to logout </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add a screenshot showing the successful logout message</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/mB2KnG4/Message-should-show-something-about-being-logged-out.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/WDpwSxN/Message-should-show-something-about-being-logged-out.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This shows the flash message after logging out as &quot;Successfully logged out&quot;<br></p>
 </td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 2: </em> Add a screenshot showing the logged out user can't access a login-protected page</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/Hxz3hCF/Message-should-show-something-about-not-being-logged-in.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/R9zMs8p/Message-should-show-something-about-not-being-logged-in.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the error when logged out tries to access login protected<br>page<br></p>
 </td></tr>
 </table></td></tr>
@@ -71,22 +71,22 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 4: </em> Feature: Basic Security Rules Implemented / Basic Roles Implemented </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add a screenshot showing the logged out user can't access a login-protected page (may be the same as similar request)</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/H44HFcg/Message-should-show-something-about-not-being-logged-in.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/7tGX07F/Message-should-show-something-about-not-being-logged-in.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the response of the app when logged out user can&#39;t<br>access a login protected page<br></p>
 </td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 2: </em> Add a screenshot showing a user without an appropriate role can't access the role-protected page</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/Gsfjvrt/Message-should-show-something-about-not-having-proper-role-or-permission-i-e-different-than-the-not.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/pJnbKBd/Message-should-show-something-about-not-having-proper-role-or-permission-i-e-different-than-the-not.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the after response of app when a user other than<br>admin tries to access role protected page<br></p>
 </td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 3: </em> Add a screenshot of the Roles table with valid data</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/rmj5d9z/Must-have-at-least-one-valid-record-from-the-lessons-i-e-Admin.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/558Y0vV/Must-have-at-least-one-valid-record-from-the-lessons-i-e-Admin.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshots shows the Roles table data from DB<br></p>
 </td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 4: </em> Add a screenshot of the UserRoles table with valid data</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/0f5KpN9/Caption-which-is-your-admin-user.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/svp85QD/Caption-which-is-your-admin-user.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the UserRoles table with valid data from DB, here the<br>users with role_id as -&quot;1&quot; is the admin<br></p>
 </td></tr>
 </table></td></tr>
@@ -99,7 +99,7 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 5: </em> Feature: Site should have basic styles/theme applied; everything should be styled </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add screenshots to show examples of your site's styles/theme</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/thCP988/Navigation-should-be-styled.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/12z7Gqk/Navigation-should-be-styled.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the styles and theme of site, including navigation, forms, and<br>data output with rows and columns.<br></p>
 </td></tr>
 </table></td></tr>
@@ -110,13 +110,13 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 6: </em> Feature: Any output messages/errors should be "user friendly" </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add screenshots of some examples of errors/messages</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/M1fF7D2/Show-email-not-available-validation-already-registered.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/2NWWHHg/Show-email-not-available-validation-already-registered.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>In this screenshot a flash message is delivered when user tries to enter<br>already registered email id.<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/S6BFrLm/Show-invalid-email-validation.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/6mQNJ22/Show-invalid-email-validation.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>In this screenshot a flash message is delivered when an invalid email is<br>entered by user<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/hWZGwdM/Show-password-mismatch-validation-doesn-t-match-what-s-in-the-DB.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/6s1XKTv/Show-password-mismatch-validation-doesn-t-match-what-s-in-the-DB.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This shows the flash message delivered the password doesn&#39;t match with what&#39;s stored<br>in DB<br></p>
 </td></tr>
 </table></td></tr>
@@ -127,7 +127,7 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 7: </em> Feature: Users will be able to see their profile </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add screenshots of the User Profile page</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/rys9gk7/Email-and-username-should-prefill-properly.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/rxbLbn7/Email-and-username-should-prefill-properly.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot the prefilled data under user profile page<br></p>
 </td></tr>
 </table></td></tr>
@@ -138,27 +138,27 @@
 </table></td></tr>
 <table><tr><td> <em>Deliverable 8: </em> Feature: User will be able to edit their profile </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="http://via.placeholder.com/400x120/009955/fff?text=Complete"></td></tr>
 <tr><td><table><tr><td> <em>Sub-Task 1: </em> Add screenshots of the User Profile page validation messages and success messages</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/4KYTVs7/Show-password-mismatch-message.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/fpKXBDM/Show-password-mismatch-message.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the password mismatch message, when the passwords entered by users<br>don&#39;t match while editng.<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/b3z0vRH/Show-password-validation-message.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/7nShK3X/Show-password-validation-message.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the validation message after successfully editing the password for logged<br>in user<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/ys92s7P/Show-email-validation-message.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/0jc6gqS/Show-email-validation-message.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the validation message when user successfully edited the email id<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/FhQt30g/Show-email-username-already-in-use-message.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/Zz9TQp5/Show-email-username-already-in-use-message.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This shows the validation when user tries to use the already registered email<br>id by another user.<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/dcnBjhH/Show-username-validation-message.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/pRx0PLy/Show-username-validation-message.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the validation message when user has successfully edited the username<br>for his profile<br></p>
 </td></tr>
 </table></td></tr>
 <tr><td> <em>Sub-Task 2: </em> Add before and after screenshots of the Users table when a user edits their profile</td></tr>
-<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/mFRkbdV/before-updating.png"/></td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://i.ibb.co/yY8CsBL/before-updating.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This screenshot shows the record before editing<br></p>
 </td></tr>
-<tr><td><img width="768px" src="https://i.ibb.co/zVV1L1w/after-updating.png"/></td></tr>
+<tr><td><img width="768px" src="https://i.ibb.co/3Mf4Rgs/after-updating.png"/></td></tr>
 <tr><td> <em>Caption:</em> <p>This shows the record after updating<br></p>
 </td></tr>
 </table></td></tr>
