@@ -12,7 +12,7 @@ def is_valid_username(username):
         raise ValidationError("Invalid username format")
 
 class AuthForm(FlaskForm):
-    # shared form that groups most of our validations together to reduce repetition
+    
     username = StringField("username", validators=[DataRequired(), Length(2, 30)])
     email = EmailField("email", validators=[DataRequired(), Email()])
     password = PasswordField("password", validators=[DataRequired(), EqualTo('confirm', message='Passwords must match'), Length(8)])
