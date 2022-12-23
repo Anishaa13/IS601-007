@@ -9,6 +9,7 @@ on:
       - dev
       - DeploymentSetup
       - Milestone2
+      - Milestone3
 
 # Your workflows jobs.
 jobs:
